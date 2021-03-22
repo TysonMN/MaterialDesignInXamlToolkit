@@ -22,7 +22,6 @@ namespace MaterialDesignThemes.Wpf
         public const string ClosedStateName = "Closed";
 
         private ContentControl? _popupContentControl;
-        private Grid? _contentCoverGrid;
         private IInputElement? _restoreFocusDialogClose;
 
         public static readonly DependencyProperty IsOpenProperty = DependencyProperty.Register(
@@ -97,30 +96,6 @@ namespace MaterialDesignThemes.Wpf
             set => SetValue(DialogContentStringFormatProperty, value);
         }
 
-        public static readonly DependencyProperty CloseOnClickAwayProperty = DependencyProperty.Register(
-            "CloseOnClickAway", typeof(bool), typeof(DialogHost), new PropertyMetadata(default(bool)));
-
-        /// <summary>
-        /// Indicates whether the dialog will close if the user clicks off the dialog, on the obscured background.
-        /// </summary>
-        public bool CloseOnClickAway
-        {
-            get => (bool)GetValue(CloseOnClickAwayProperty);
-            set => SetValue(CloseOnClickAwayProperty, value);
-        }
-
-        public static readonly DependencyProperty CloseOnClickAwayParameterProperty = DependencyProperty.Register(
-            "CloseOnClickAwayParameter", typeof(object), typeof(DialogHost), new PropertyMetadata(default(object)));
-
-        /// <summary>
-        /// Parameter to provide to close handlers if an close due to click away is instigated.
-        /// </summary>
-        public object? CloseOnClickAwayParameter
-        {
-            get => GetValue(CloseOnClickAwayParameterProperty);
-            set => SetValue(CloseOnClickAwayParameterProperty, value);
-        }
-
         public static readonly DependencyProperty PopupStyleProperty = DependencyProperty.Register(
             nameof(PopupStyle), typeof(Style), typeof(DialogHost), new PropertyMetadata(default(Style)));
 
@@ -144,24 +119,11 @@ namespace MaterialDesignThemes.Wpf
 
         public override void OnApplyTemplate()
         {
-            if (_contentCoverGrid != null)
-                _contentCoverGrid.MouseLeftButtonUp -= ContentCoverGridOnMouseLeftButtonUp;
-
             _popupContentControl = GetTemplateChild(PopupContentPartName) as ContentControl;
-            _contentCoverGrid = GetTemplateChild(ContentCoverGridName) as Grid;
-
-            if (_contentCoverGrid != null)
-                _contentCoverGrid.MouseLeftButtonUp += ContentCoverGridOnMouseLeftButtonUp;
 
             VisualStateManager.GoToState(this, SelectState(), false);
 
             base.OnApplyTemplate();
-        }
-
-        private void ContentCoverGridOnMouseLeftButtonUp(object _1, MouseButtonEventArgs _2)
-        {
-            if (CloseOnClickAway)
-                SetCurrentValue(IsOpenProperty, false);
         }
 
         private string SelectState() =>

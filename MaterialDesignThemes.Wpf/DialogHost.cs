@@ -195,21 +195,17 @@ namespace MaterialDesignThemes.Wpf
                     "Content cannot be passed to a dialog via the OpenDialog if DialogContent already has a binding.");
         }
 
-        internal void InternalClose(object? parameter)
-        {
+        internal void InternalClose(object? _1) =>
             SetCurrentValue(IsOpenProperty, false);
-        }
 
-        private void ContentCoverGridOnMouseLeftButtonUp(object sender, MouseButtonEventArgs mouseButtonEventArgs)
+        private void ContentCoverGridOnMouseLeftButtonUp(object _1, MouseButtonEventArgs _2)
         {
             if (CloseOnClickAway)
                 InternalClose(CloseOnClickAwayParameter);
         }
 
-        private string SelectState()
-        {
-            return IsOpen ? OpenStateName : ClosedStateName;
-        }
+        private string SelectState() =>
+            IsOpen ? OpenStateName : ClosedStateName;
 
     }
 }

@@ -11,27 +11,6 @@ using System.Windows.Threading;
 
 namespace MaterialDesignThemes.Wpf
 {
-    /// <summary>
-    /// Defines how a data context is sourced for a dialog if a <see cref="FrameworkElement"/>
-    /// is passed as the command parameter when using <see cref="DialogHost.OpenDialogCommand"/>.
-    /// </summary>
-    public enum DialogHostOpenDialogCommandDataContextSource
-    {
-        /// <summary>
-        /// The data context from the sender element (typically a <see cref="Button"/>) 
-        /// is applied to the content.
-        /// </summary>
-        SenderElement,
-        /// <summary>
-        /// The data context from the <see cref="DialogHost"/> is applied to the content.
-        /// </summary>
-        DialogHostInstance,
-        /// <summary>
-        /// The data context is explicitly set to <c>null</c>.
-        /// </summary>
-        None
-    }
-
     [TemplatePart(Name = PopupPartName, Type = typeof(Popup))]
     [TemplatePart(Name = PopupPartName, Type = typeof(ContentControl))]
     [TemplatePart(Name = ContentCoverGridName, Type = typeof(Grid))]

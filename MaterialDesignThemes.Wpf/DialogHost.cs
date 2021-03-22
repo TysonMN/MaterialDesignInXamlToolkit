@@ -10,14 +10,12 @@ namespace MaterialDesignThemes.Wpf
 {
     [TemplatePart(Name = PopupPartName, Type = typeof(Popup))]
     [TemplatePart(Name = PopupPartName, Type = typeof(ContentControl))]
-    [TemplatePart(Name = ContentCoverGridName, Type = typeof(Grid))]
     [TemplateVisualState(GroupName = "PopupStates", Name = OpenStateName)]
     [TemplateVisualState(GroupName = "PopupStates", Name = ClosedStateName)]
     public class DialogHost : ContentControl
     {
         public const string PopupPartName = "PART_Popup";
         public const string PopupContentPartName = "PART_PopupContentElement";
-        public const string ContentCoverGridName = "PART_ContentCoverGrid";
         public const string OpenStateName = "Open";
         public const string ClosedStateName = "Closed";
 
@@ -67,18 +65,6 @@ namespace MaterialDesignThemes.Wpf
         {
             get => GetValue(DialogContentProperty);
             set => SetValue(DialogContentProperty, value);
-        }
-
-        public static readonly DependencyProperty OverlayBackgroundProperty = DependencyProperty.Register(
-            nameof(OverlayBackground), typeof(Brush), typeof(DialogHost), new PropertyMetadata(Brushes.Black));
-
-        /// <summary>
-        /// Represents the overlay brush that is used to dim the background behind the dialog
-        /// </summary>
-        public Brush? OverlayBackground
-        {
-            get => (Brush?)GetValue(OverlayBackgroundProperty);
-            set => SetValue(OverlayBackgroundProperty, value);
         }
 
         public override void OnApplyTemplate()

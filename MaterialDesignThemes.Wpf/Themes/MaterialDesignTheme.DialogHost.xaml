@@ -3,7 +3,6 @@
                     xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf">
 
     <Style TargetType="{x:Type wpf:DialogHost}">
-        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="wpf:DialogHost">

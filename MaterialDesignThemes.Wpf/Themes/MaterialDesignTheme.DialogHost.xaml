@@ -7,7 +7,6 @@
 
     <Style TargetType="{x:Type wpf:DialogHost}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-        <Setter Property="wpf:ShadowAssist.ShadowDepth" Value="Depth5" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="wpf:DialogHost">
@@ -57,11 +56,6 @@
                                      x:Name="PART_Popup" 
                                      Style="{TemplateBinding PopupStyle}">
                             <wpf:Card x:Name="PART_PopupContentElement" 
-                                        wpf:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(wpf:ShadowAssist.ShadowDepth)}"
-                                        UniformCornerRadius="4"
-                                        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-                                        TextElement.FontWeight="Regular"
-                                        TextElement.FontSize="13"
                                         TextOptions.TextFormattingMode="Ideal"
                                         TextOptions.TextRenderingMode="Auto" 
                                         FocusManager.IsFocusScope="False"

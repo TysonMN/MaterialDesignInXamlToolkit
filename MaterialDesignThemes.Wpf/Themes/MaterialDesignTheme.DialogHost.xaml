@@ -26,31 +26,39 @@
                             <VisualStateGroup x:Name="PopupStates">
                                 <VisualState x:Name="Open">
                                     <Storyboard>
-                                        <BooleanAnimationUsingKeyFrames Storyboard.TargetName="PART_Popup" Storyboard.TargetProperty="IsOpen"
+                                        <BooleanAnimationUsingKeyFrames Storyboard.TargetName="PART_Popup"
+                                                                        Storyboard.TargetProperty="IsOpen"
                                                                         Duration="0">
                                             <DiscreteBooleanKeyFrame Value="True" KeyTime="0" />
                                         </BooleanAnimationUsingKeyFrames>
-                                        <DoubleAnimation Storyboard.TargetName="PART_ContentCoverGrid" Storyboard.TargetProperty="Opacity"
+                                        <DoubleAnimation Storyboard.TargetName="PART_ContentCoverGrid"
+                                                         Storyboard.TargetProperty="Opacity"
                                                          Duration="0"
                                                          To=".56" />
-                                        <DoubleAnimation Storyboard.TargetName="PART_PopupContentElement" Storyboard.TargetProperty="Opacity"
+                                        <DoubleAnimation Storyboard.TargetName="PART_PopupContentElement"
+                                                         Storyboard.TargetProperty="Opacity"
                                                          Duration="0"
                                                          To="1" />
-                                        <DoubleAnimation Storyboard.TargetName="CardScaleTransform" Storyboard.TargetProperty="ScaleX"
+                                        <DoubleAnimation Storyboard.TargetName="CardScaleTransform"
+                                                         Storyboard.TargetProperty="ScaleX"
                                                          Duration="0"
                                                          To="1" />
-                                        <DoubleAnimation Storyboard.TargetName="CardScaleTransform" Storyboard.TargetProperty="ScaleY"
+                                        <DoubleAnimation Storyboard.TargetName="CardScaleTransform"
+                                                         Storyboard.TargetProperty="ScaleY"
                                                          Duration="0"
                                                          To="1" />
                                     </Storyboard>
                                 </VisualState>
                                 <VisualState x:Name="Closed">
                                     <Storyboard>
-                                        <BooleanAnimationUsingKeyFrames Storyboard.TargetName="PART_Popup" Storyboard.TargetProperty="IsOpen">
+                                        <BooleanAnimationUsingKeyFrames Storyboard.TargetName="PART_Popup"
+                                                                        Storyboard.TargetProperty="IsOpen">
                                             <DiscreteBooleanKeyFrame Value="False" KeyTime="0" />
                                         </BooleanAnimationUsingKeyFrames>
-                                        <DoubleAnimation Storyboard.TargetName="PART_ContentCoverGrid" Storyboard.TargetProperty="Opacity"
-                                                         To="0" Duration="0"/>
+                                        <DoubleAnimation Storyboard.TargetName="PART_ContentCoverGrid"
+                                                         Storyboard.TargetProperty="Opacity"
+                                                         To="0"
+                                                         Duration="0"/>
                                     </Storyboard>
                                 </VisualState>
                             </VisualStateGroup>

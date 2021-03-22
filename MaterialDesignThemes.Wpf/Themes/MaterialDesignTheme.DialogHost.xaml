@@ -54,7 +54,6 @@
                                         TextOptions.TextFormattingMode="Ideal"
                                         TextOptions.TextRenderingMode="Auto" 
                                         FocusManager.IsFocusScope="False"
-                                        Foreground="{DynamicResource MaterialDesignBody}"
                                         Focusable="True"
                                         IsTabStop="False"
                                         Opacity="0"

@@ -45,15 +45,6 @@ namespace MaterialDesignThemes.Wpf
         public const string OpenStateName = "Open";
         public const string ClosedStateName = "Closed";
 
-        /// <summary>
-        /// Routed command to be used somewhere inside an instance to trigger showing of the dialog. Content can be passed to the dialog via a <see cref="Button.CommandParameter"/>.
-        /// </summary>
-        public static readonly RoutedCommand OpenDialogCommand = new();
-        /// <summary>
-        /// Routed command to be used inside dialog content to close a dialog. Use a <see cref="Button.CommandParameter"/> to indicate the result of the parameter.
-        /// </summary>
-        public static readonly RoutedCommand CloseDialogCommand = new();
-
         private DialogOpenedEventHandler? _asyncShowOpenedEventHandler;
         private DialogClosingEventHandler? _asyncShowClosingEventHandler;
         private TaskCompletionSource<object?>? _dialogTaskCompletionSource;
@@ -98,11 +89,7 @@ namespace MaterialDesignThemes.Wpf
 
         #endregion
 
-        public DialogHost()
-        {
-            CommandBindings.Add(new CommandBinding(CloseDialogCommand, CloseDialogHandler, CloseDialogCanExecute));
-            CommandBindings.Add(new CommandBinding(OpenDialogCommand, OpenDialogHandler));
-        }
+        public DialogHost() { }
 
         public static readonly DependencyProperty IdentifierProperty = DependencyProperty.Register(
             nameof(Identifier), typeof(object), typeof(DialogHost), new PropertyMetadata(default(object)));

@@ -23,9 +23,6 @@
                             <Setter TargetName="ContentPresenter" Property="IsEnabled" Value="False" />
                             <Setter TargetName="PART_Popup" Property="IsOpen" Value="True" />
                         </Trigger>
-                        <Trigger Property="IsOpen" Value="False">
-                            <Setter TargetName="PART_Popup" Property="IsOpen" Value="False" />
-                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

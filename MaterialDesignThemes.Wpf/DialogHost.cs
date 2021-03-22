@@ -45,8 +45,6 @@ namespace MaterialDesignThemes.Wpf
         public const string OpenStateName = "Open";
         public const string ClosedStateName = "Closed";
 
-        private TaskCompletionSource<object?>? _dialogTaskCompletionSource;
-
         private Popup? _popup;
         private ContentControl? _popupContentControl;
         private Grid? _contentCoverGrid;
@@ -56,28 +54,6 @@ namespace MaterialDesignThemes.Wpf
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(DialogHost), new FrameworkPropertyMetadata(typeof(DialogHost)));
         }
-
-        #region Show overloads
-        internal async Task<object?> ShowInternal(object content, DialogOpenedEventHandler? openedEventHandler, DialogClosingEventHandler? closingEventHandler)
-        {
-            if (IsOpen)
-                throw new InvalidOperationException("DialogHost is already open.");
-
-            _dialogTaskCompletionSource = new TaskCompletionSource<object?>();
-
-            AssertTargetableContent();
-
-            if (content != null)
-                DialogContent = content;
-
-            SetCurrentValue(IsOpenProperty, true);
-
-            object? result = await _dialogTaskCompletionSource.Task;
-
-            return result;
-        }
-
-        #endregion
 
         public DialogHost() { }
 
@@ -116,9 +92,6 @@ namespace MaterialDesignThemes.Wpf
                     session.IsEnded = true;
                     dialogHost.CurrentSession = null;
                 }
-
-                //NB: _dialogTaskCompletionSource is only set in the case where the dialog is shown with Show
-                dialogHost._dialogTaskCompletionSource?.TrySetResult(closeParameter);
 
                 // Don't attempt to Invoke if _restoreFocusDialogClose hasn't been assigned yet. Can occur
                 // if the MainWindow has started up minimized. Even when Show() has been called, this doesn't

@@ -10,23 +10,10 @@
                             <VisualStateGroup x:Name="PopupStates">
                                 <VisualState x:Name="Open">
                                     <Storyboard>
-                                        <BooleanAnimationUsingKeyFrames Storyboard.TargetName="PART_Popup"
-                                                                        Storyboard.TargetProperty="IsOpen"
-                                                                        Duration="0">
-                                            <DiscreteBooleanKeyFrame Value="True" KeyTime="0" />
-                                        </BooleanAnimationUsingKeyFrames>
-                                        <DoubleAnimation Storyboard.TargetName="PART_PopupContentElement"
-                                                         Storyboard.TargetProperty="Opacity"
-                                                         Duration="0"
-                                                         To="1" />
                                     </Storyboard>
                                 </VisualState>
                                 <VisualState x:Name="Closed">
                                     <Storyboard>
-                                        <BooleanAnimationUsingKeyFrames Storyboard.TargetName="PART_Popup"
-                                                                        Storyboard.TargetProperty="IsOpen">
-                                            <DiscreteBooleanKeyFrame Value="False" KeyTime="0" />
-                                        </BooleanAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
                             </VisualStateGroup>
@@ -49,6 +36,11 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsOpen" Value="True">
                             <Setter TargetName="ContentPresenter" Property="IsEnabled" Value="False" />
+                            <Setter TargetName="PART_Popup" Property="IsOpen" Value="True" />
+                            <Setter TargetName="PART_PopupContentElement" Property="Opacity" Value="1" />
+                        </Trigger>
+                        <Trigger Property="IsOpen" Value="False">
+                            <Setter TargetName="PART_Popup" Property="IsOpen" Value="False" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

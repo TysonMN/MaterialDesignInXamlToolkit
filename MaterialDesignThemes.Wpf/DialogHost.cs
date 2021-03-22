@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -24,7 +22,6 @@ namespace MaterialDesignThemes.Wpf
         public const string OpenStateName = "Open";
         public const string ClosedStateName = "Closed";
 
-        private Popup? _popup;
         private ContentControl? _popupContentControl;
         private Grid? _contentCoverGrid;
         private IInputElement? _restoreFocusDialogClose;
@@ -66,14 +63,6 @@ namespace MaterialDesignThemes.Wpf
             dialogHost.Dispatcher.BeginInvoke(DispatcherPriority.Background, new Action(() =>
             {
                 CommandManager.InvalidateRequerySuggested();
-                UIElement? child = dialogHost.FocusPopup();
-
-                if (child != null)
-                {
-                    //https://github.com/ButchersBoy/MaterialDesignInXamlToolkit/issues/187
-                    //totally not happy about this, but on immediate validation we can get some weird looking stuff...give WPF a kick to refresh...
-                    Task.Delay(300).ContinueWith(t => child.Dispatcher.BeginInvoke(new Action(() => child.InvalidateVisual())));
-                }
             }));
         }
 
@@ -190,7 +179,6 @@ namespace MaterialDesignThemes.Wpf
             if (_contentCoverGrid != null)
                 _contentCoverGrid.MouseLeftButtonUp -= ContentCoverGridOnMouseLeftButtonUp;
 
-            _popup = GetTemplateChild(PopupPartName) as Popup;
             _popupContentControl = GetTemplateChild(PopupContentPartName) as ContentControl;
             _contentCoverGrid = GetTemplateChild(ContentCoverGridName) as Grid;
 
@@ -213,26 +201,6 @@ namespace MaterialDesignThemes.Wpf
         internal void InternalClose(object? parameter)
         {
             SetCurrentValue(IsOpenProperty, false);
-        }
-
-        /// <summary>
-        /// Attempts to focus the content of a popup.
-        /// </summary>
-        /// <returns>The popup content.</returns>
-        internal UIElement? FocusPopup()
-        {
-            var child = _popup?.Child ?? _popupContentControl;
-            if (child is null) return null;
-
-            CommandManager.InvalidateRequerySuggested();
-            var focusable = child.VisualDepthFirstTraversal().OfType<UIElement>().FirstOrDefault(ui => ui.Focusable && ui.IsVisible);
-            focusable?.Dispatcher.InvokeAsync(() =>
-            {
-                if (!focusable.Focus()) return;
-                focusable.MoveFocus(new TraversalRequest(FocusNavigationDirection.First));
-            }, DispatcherPriority.Background);
-
-            return child;
         }
 
         private void ContentCoverGridOnMouseLeftButtonUp(object sender, MouseButtonEventArgs mouseButtonEventArgs)

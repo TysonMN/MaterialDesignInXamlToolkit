@@ -31,7 +31,7 @@ namespace MaterialDesignThemes.Wpf
 
             if (dialogHost._popupContentControl != null)
                 ValidationAssist.SetSuppress(dialogHost._popupContentControl, !dialogHost.IsOpen);
-            VisualStateManager.GoToState(dialogHost, dialogHost.GetStateName(), !TransitionAssist.GetDisableTransitions(dialogHost));
+            VisualStateManager.GoToState(dialogHost, dialogHost.GetStateName(), false);
 
             if (!dialogHost.IsOpen)
             {

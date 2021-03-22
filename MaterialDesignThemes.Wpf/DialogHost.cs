@@ -57,18 +57,6 @@ namespace MaterialDesignThemes.Wpf
 
         public DialogHost() { }
 
-        public static readonly DependencyProperty IdentifierProperty = DependencyProperty.Register(
-            nameof(Identifier), typeof(object), typeof(DialogHost), new PropertyMetadata(default(object)));
-
-        /// <summary>
-        /// Identifier which is used in conjunction with <see cref="Show(object)"/> to determine where a dialog should be shown.
-        /// </summary>
-        public object? Identifier
-        {
-            get => GetValue(IdentifierProperty);
-            set => SetValue(IdentifierProperty, value);
-        }
-
         public static readonly DependencyProperty IsOpenProperty = DependencyProperty.Register(
             nameof(IsOpen), typeof(bool), typeof(DialogHost), new FrameworkPropertyMetadata(default(bool), FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, IsOpenPropertyChangedCallback));
 

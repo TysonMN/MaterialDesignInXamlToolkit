@@ -50,8 +50,6 @@
                         </VisualStateManager.VisualStateGroups>
                         <Popup x:Name="PART_Popup">
                             <wpf:Card x:Name="PART_PopupContentElement" 
-                                        TextOptions.TextFormattingMode="Ideal"
-                                        TextOptions.TextRenderingMode="Auto" 
                                         FocusManager.IsFocusScope="False"
                                         Focusable="True"
                                         IsTabStop="False"

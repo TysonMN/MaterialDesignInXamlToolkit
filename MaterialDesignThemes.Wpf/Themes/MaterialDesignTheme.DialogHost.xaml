@@ -14,7 +14,6 @@
 
     <Style TargetType="{x:Type wpf:DialogHost}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-        <Setter Property="DialogMargin" Value="35" />
         <Setter Property="wpf:ShadowAssist.ShadowDepth" Value="Depth5" />
         <Setter Property="DialogTheme" Value="Inherit" />
         <Setter Property="PopupStyle" Value="{StaticResource MaterialDesignDialogHostPopup}" />
@@ -68,7 +67,6 @@
                                      Style="{TemplateBinding PopupStyle}"
                                      wpf:ThemeAssist.Theme="{TemplateBinding DialogTheme}">
                             <wpf:Card x:Name="PART_PopupContentElement" 
-                                        Margin="{TemplateBinding DialogMargin}"
                                         wpf:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(wpf:ShadowAssist.ShadowDepth)}"
                                         UniformCornerRadius="4"
                                         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -124,7 +122,6 @@
     </Style>
 
     <Style x:Key="MaterialDesignEmbeddedDialogHost" TargetType="{x:Type wpf:DialogHost}">
-        <Setter Property="DialogMargin" Value="35" />
         <Setter Property="wpf:ShadowAssist.ShadowDepth" Value="Depth5" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -271,7 +268,6 @@
                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                             <wpf:Card 
                                 x:Name="PART_PopupContentElement" 
-                                Margin="{TemplateBinding DialogMargin}"
                                 wpf:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(wpf:ShadowAssist.ShadowDepth)}"
                                 UniformCornerRadius="4"
                                 TextElement.Foreground="{DynamicResource MaterialDesignBody}"

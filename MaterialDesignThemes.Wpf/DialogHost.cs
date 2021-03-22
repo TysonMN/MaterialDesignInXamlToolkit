@@ -105,15 +105,6 @@ namespace MaterialDesignThemes.Wpf
             set => SetValue(DialogContentStringFormatProperty, value);
         }
 
-        public static readonly DependencyProperty DialogMarginProperty = DependencyProperty.Register(
-            "DialogMargin", typeof(Thickness), typeof(DialogHost), new PropertyMetadata(default(Thickness)));
-
-        public Thickness DialogMargin
-        {
-            get => (Thickness)GetValue(DialogMarginProperty);
-            set => SetValue(DialogMarginProperty, value);
-        }
-
         public static readonly DependencyProperty CloseOnClickAwayProperty = DependencyProperty.Register(
             "CloseOnClickAway", typeof(bool), typeof(DialogHost), new PropertyMetadata(default(bool)));
 

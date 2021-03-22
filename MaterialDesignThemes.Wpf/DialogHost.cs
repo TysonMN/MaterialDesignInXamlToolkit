@@ -187,14 +187,6 @@ namespace MaterialDesignThemes.Wpf
             base.OnApplyTemplate();
         }
 
-        internal void AssertTargetableContent()
-        {
-            var existingBinding = BindingOperations.GetBindingExpression(this, DialogContentProperty);
-            if (existingBinding != null)
-                throw new InvalidOperationException(
-                    "Content cannot be passed to a dialog via the OpenDialog if DialogContent already has a binding.");
-        }
-
         private void ContentCoverGridOnMouseLeftButtonUp(object _1, MouseButtonEventArgs _2)
         {
             if (CloseOnClickAway)

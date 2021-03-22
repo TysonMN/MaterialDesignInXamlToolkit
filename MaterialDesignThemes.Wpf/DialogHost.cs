@@ -44,10 +44,7 @@ namespace MaterialDesignThemes.Wpf
                 ValidationAssist.SetSuppress(dialogHost._popupContentControl, !dialogHost.IsOpen);
             VisualStateManager.GoToState(dialogHost, dialogHost.SelectState(), !TransitionAssist.GetDisableTransitions(dialogHost));
 
-            if (dialogHost.IsOpen)
-            {
-            }
-            else
+            if (!dialogHost.IsOpen)
             {
                 // Don't attempt to Invoke if _restoreFocusDialogClose hasn't been assigned yet. Can occur
                 // if the MainWindow has started up minimized. Even when Show() has been called, this doesn't

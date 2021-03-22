@@ -25,11 +25,6 @@ namespace MaterialDesignThemes.Wpf
         private Grid? _contentCoverGrid;
         private IInputElement? _restoreFocusDialogClose;
 
-        static DialogHost()
-        {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(DialogHost), new FrameworkPropertyMetadata(typeof(DialogHost)));
-        }
-
         public DialogHost() { }
 
         public static readonly DependencyProperty IsOpenProperty = DependencyProperty.Register(

@@ -35,8 +35,8 @@
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsOpen" Value="True">
-                            <Setter TargetName="ContentPresenter" Property="IsEnabled" Value="False" />
                             <Setter TargetName="PART_Popup" Property="IsOpen" Value="True" />
+                            <Setter TargetName="ContentPresenter" Property="IsEnabled" Value="False" />
                             <Setter TargetName="PART_PopupContentElement" Property="Opacity" Value="1" />
                         </Trigger>
                         <Trigger Property="IsOpen" Value="False">

@@ -25,8 +25,6 @@ namespace MaterialDesignThemes.Wpf
         private Grid? _contentCoverGrid;
         private IInputElement? _restoreFocusDialogClose;
 
-        public DialogHost() { }
-
         public static readonly DependencyProperty IsOpenProperty = DependencyProperty.Register(
             nameof(IsOpen), typeof(bool), typeof(DialogHost), new FrameworkPropertyMetadata(default(bool), FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, IsOpenPropertyChangedCallback));
 

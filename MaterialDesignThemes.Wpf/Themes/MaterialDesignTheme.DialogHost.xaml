@@ -53,7 +53,7 @@
                                 </VisualState>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
-                        <wpf:PopupEx PlacementTarget="{Binding ElementName=DialogHostRoot, Mode=OneWay}"
+                        <Popup PlacementTarget="{Binding ElementName=DialogHostRoot, Mode=OneWay}"
                                      x:Name="PART_Popup" 
                                      Style="{TemplateBinding PopupStyle}">
                             <wpf:Card x:Name="PART_PopupContentElement" 
@@ -82,7 +82,7 @@
                                     </TransformGroup>
                                 </wpf:Card.RenderTransform>
                             </wpf:Card>
-                        </wpf:PopupEx>
+                        </Popup>
                         <AdornerDecorator>
                             <ContentPresenter x:Name="ContentPresenter" Opacity="1" Content="{TemplateBinding ContentControl.Content}" 
                                               ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}" />

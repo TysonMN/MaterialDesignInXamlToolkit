@@ -15,11 +15,9 @@
                                         Content="{TemplateBinding DialogContent}">
                             </wpf:Card>
                         </Popup>
-                        <AdornerDecorator>
-                            <ContentPresenter x:Name="ContentPresenter"
-                                              Opacity="1"
-                                              Content="{TemplateBinding ContentControl.Content}"/>
-                        </AdornerDecorator>
+                        <ContentPresenter x:Name="ContentPresenter"
+                                          Opacity="1"
+                                          Content="{TemplateBinding ContentControl.Content}"/>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsOpen" Value="True">

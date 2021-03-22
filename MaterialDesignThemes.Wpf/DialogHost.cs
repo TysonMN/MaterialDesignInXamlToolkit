@@ -85,14 +85,6 @@ namespace MaterialDesignThemes.Wpf
             }
             else
             {
-                object? closeParameter = null;
-                if (dialogHost.CurrentSession is { } session)
-                {
-                    closeParameter = session.CloseParameter;
-                    session.IsEnded = true;
-                    dialogHost.CurrentSession = null;
-                }
-
                 // Don't attempt to Invoke if _restoreFocusDialogClose hasn't been assigned yet. Can occur
                 // if the MainWindow has started up minimized. Even when Show() has been called, this doesn't
                 // seem to have been set.
@@ -101,7 +93,6 @@ namespace MaterialDesignThemes.Wpf
                 return;
             }
 
-            dialogHost.CurrentSession = new DialogSession(dialogHost);
             var window = Window.GetWindow(dialogHost);
             dialogHost._restoreFocusDialogClose = window != null ? FocusManager.GetFocusedElement(window) : null;
 
@@ -118,11 +109,6 @@ namespace MaterialDesignThemes.Wpf
                 }
             }));
         }
-
-        /// <summary>
-        /// Returns a DialogSession for the currently open dialog for managing it programmatically. If no dialog is open, CurrentSession will return null
-        /// </summary>
-        public DialogSession? CurrentSession { get; private set; }
 
         public bool IsOpen
         {
@@ -305,7 +291,7 @@ namespace MaterialDesignThemes.Wpf
 
         private void ContentCoverGridOnMouseLeftButtonUp(object sender, MouseButtonEventArgs mouseButtonEventArgs)
         {
-            if (CloseOnClickAway && CurrentSession != null)
+            if (CloseOnClickAway)
                 InternalClose(CloseOnClickAwayParameter);
         }
 

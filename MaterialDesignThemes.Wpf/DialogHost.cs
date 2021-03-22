@@ -149,19 +149,6 @@ namespace MaterialDesignThemes.Wpf
             set => SetValue(DialogMarginProperty, value);
         }
 
-        public static readonly DependencyProperty OpenDialogCommandDataContextSourceProperty = DependencyProperty.Register(
-            nameof(OpenDialogCommandDataContextSource), typeof(DialogHostOpenDialogCommandDataContextSource), typeof(DialogHost), new PropertyMetadata(default(DialogHostOpenDialogCommandDataContextSource)));
-
-        /// <summary>
-        /// Defines how a data context is sourced for a dialog if a <see cref="FrameworkElement"/>
-        /// is passed as the command parameter when using <see cref="DialogHost.OpenDialogCommand"/>.
-        /// </summary>
-        public DialogHostOpenDialogCommandDataContextSource OpenDialogCommandDataContextSource
-        {
-            get => (DialogHostOpenDialogCommandDataContextSource)GetValue(OpenDialogCommandDataContextSourceProperty);
-            set => SetValue(OpenDialogCommandDataContextSourceProperty, value);
-        }
-
         public static readonly DependencyProperty CloseOnClickAwayProperty = DependencyProperty.Register(
             "CloseOnClickAway", typeof(bool), typeof(DialogHost), new PropertyMetadata(default(bool)));
 

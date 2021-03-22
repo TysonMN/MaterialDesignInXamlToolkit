@@ -129,18 +129,6 @@ namespace MaterialDesignThemes.Wpf
             set => SetValue(CloseOnClickAwayParameterProperty, value);
         }
 
-        public static readonly DependencyProperty DialogThemeProperty =
-            DependencyProperty.Register(nameof(DialogTheme), typeof(BaseTheme), typeof(DialogHost), new PropertyMetadata(default(BaseTheme)));
-
-        /// <summary>
-        /// Set the theme (light/dark) for the dialog.
-        /// </summary>
-        public BaseTheme DialogTheme
-        {
-            get => (BaseTheme)GetValue(DialogThemeProperty);
-            set => SetValue(DialogThemeProperty, value);
-        }
-
         public static readonly DependencyProperty PopupStyleProperty = DependencyProperty.Register(
             nameof(PopupStyle), typeof(Style), typeof(DialogHost), new PropertyMetadata(default(Style)));
 

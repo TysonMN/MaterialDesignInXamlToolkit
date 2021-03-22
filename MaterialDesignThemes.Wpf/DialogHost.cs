@@ -69,42 +69,6 @@ namespace MaterialDesignThemes.Wpf
             set => SetValue(DialogContentProperty, value);
         }
 
-        public static readonly DependencyProperty DialogContentTemplateProperty = DependencyProperty.Register(
-            nameof(DialogContentTemplate), typeof(DataTemplate), typeof(DialogHost), new PropertyMetadata(default(DataTemplate)));
-
-        public DataTemplate? DialogContentTemplate
-        {
-            get => (DataTemplate?)GetValue(DialogContentTemplateProperty);
-            set => SetValue(DialogContentTemplateProperty, value);
-        }
-
-        public static readonly DependencyProperty DialogContentTemplateSelectorProperty = DependencyProperty.Register(
-            nameof(DialogContentTemplateSelector), typeof(DataTemplateSelector), typeof(DialogHost), new PropertyMetadata(default(DataTemplateSelector)));
-
-        public DataTemplateSelector? DialogContentTemplateSelector
-        {
-            get => (DataTemplateSelector?)GetValue(DialogContentTemplateSelectorProperty);
-            set => SetValue(DialogContentTemplateSelectorProperty, value);
-        }
-
-        public static readonly DependencyProperty DialogContentStringFormatProperty = DependencyProperty.Register(
-            nameof(DialogContentStringFormat), typeof(string), typeof(DialogHost), new PropertyMetadata(default(string)));
-
-        public string? DialogContentStringFormat
-        {
-            get => (string?)GetValue(DialogContentStringFormatProperty);
-            set => SetValue(DialogContentStringFormatProperty, value);
-        }
-
-        public static readonly DependencyProperty PopupStyleProperty = DependencyProperty.Register(
-            nameof(PopupStyle), typeof(Style), typeof(DialogHost), new PropertyMetadata(default(Style)));
-
-        public Style? PopupStyle
-        {
-            get => (Style?)GetValue(PopupStyleProperty);
-            set => SetValue(PopupStyleProperty, value);
-        }
-
         public static readonly DependencyProperty OverlayBackgroundProperty = DependencyProperty.Register(
             nameof(OverlayBackground), typeof(Brush), typeof(DialogHost), new PropertyMetadata(Brushes.Black));
 

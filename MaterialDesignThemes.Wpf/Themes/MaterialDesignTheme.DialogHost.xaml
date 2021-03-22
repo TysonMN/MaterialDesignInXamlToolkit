@@ -58,10 +58,7 @@
                                         IsTabStop="False"
                                         Opacity="0"
                                         RenderTransformOrigin=".5,.5"
-                                        Content="{TemplateBinding DialogContent}"
-                                        ContentTemplate="{TemplateBinding DialogContentTemplate}"
-                                        ContentTemplateSelector="{TemplateBinding DialogContentTemplateSelector}"
-                                        ContentStringFormat="{TemplateBinding DialogContentStringFormat}">
+                                        Content="{TemplateBinding DialogContent}">
                                 <wpf:Card.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform x:Name="CardScaleTransform"

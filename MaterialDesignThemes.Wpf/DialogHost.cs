@@ -195,13 +195,10 @@ namespace MaterialDesignThemes.Wpf
                     "Content cannot be passed to a dialog via the OpenDialog if DialogContent already has a binding.");
         }
 
-        internal void InternalClose(object? _1) =>
-            SetCurrentValue(IsOpenProperty, false);
-
         private void ContentCoverGridOnMouseLeftButtonUp(object _1, MouseButtonEventArgs _2)
         {
             if (CloseOnClickAway)
-                InternalClose(CloseOnClickAwayParameter);
+                SetCurrentValue(IsOpenProperty, false);
         }
 
         private string SelectState() =>

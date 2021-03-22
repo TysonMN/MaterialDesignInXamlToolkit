@@ -48,8 +48,7 @@
                                 </VisualState>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
-                        <Popup PlacementTarget="{Binding ElementName=DialogHostRoot, Mode=OneWay}"
-                               x:Name="PART_Popup">
+                        <Popup x:Name="PART_Popup">
                             <wpf:Card x:Name="PART_PopupContentElement" 
                                         TextOptions.TextFormattingMode="Ideal"
                                         TextOptions.TextRenderingMode="Auto" 

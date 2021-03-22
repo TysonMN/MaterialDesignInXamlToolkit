@@ -6,18 +6,6 @@
             <Setter.Value>
                 <ControlTemplate TargetType="wpf:DialogHost">
                     <Grid x:Name="DialogHostRoot" Focusable="False">
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup x:Name="PopupStates">
-                                <VisualState x:Name="Open">
-                                    <Storyboard>
-                                    </Storyboard>
-                                </VisualState>
-                                <VisualState x:Name="Closed">
-                                    <Storyboard>
-                                    </Storyboard>
-                                </VisualState>
-                            </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
                         <Popup x:Name="PART_Popup">
                             <wpf:Card x:Name="PART_PopupContentElement" 
                                         FocusManager.IsFocusScope="False"

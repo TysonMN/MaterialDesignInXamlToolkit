@@ -30,7 +30,6 @@ namespace MaterialDesignThemes.Wpf
 
             if (dialogHost._popupContentControl != null)
                 ValidationAssist.SetSuppress(dialogHost._popupContentControl, !dialogHost.IsOpen);
-            VisualStateManager.GoToState(dialogHost, dialogHost.GetStateName(), false);
 
             if (!dialogHost.IsOpen)
             {
@@ -69,14 +68,7 @@ namespace MaterialDesignThemes.Wpf
         public override void OnApplyTemplate()
         {
             _popupContentControl = GetTemplateChild(PopupContentPartName) as ContentControl;
-
-            VisualStateManager.GoToState(this, GetStateName(), false);
-
             base.OnApplyTemplate();
         }
-
-        private string GetStateName() =>
-            IsOpen ? OpenStateName : ClosedStateName;
-
     }
 }

@@ -33,7 +33,7 @@ namespace MaterialDesignThemes.Wpf
 
             if (dialogHost._popupContentControl != null)
                 ValidationAssist.SetSuppress(dialogHost._popupContentControl, !dialogHost.IsOpen);
-            VisualStateManager.GoToState(dialogHost, dialogHost.SelectState(), !TransitionAssist.GetDisableTransitions(dialogHost));
+            VisualStateManager.GoToState(dialogHost, dialogHost.GetStateName(), !TransitionAssist.GetDisableTransitions(dialogHost));
 
             if (!dialogHost.IsOpen)
             {
@@ -85,12 +85,12 @@ namespace MaterialDesignThemes.Wpf
         {
             _popupContentControl = GetTemplateChild(PopupContentPartName) as ContentControl;
 
-            VisualStateManager.GoToState(this, SelectState(), false);
+            VisualStateManager.GoToState(this, GetStateName(), false);
 
             base.OnApplyTemplate();
         }
 
-        private string SelectState() =>
+        private string GetStateName() =>
             IsOpen ? OpenStateName : ClosedStateName;
 
     }

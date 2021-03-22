@@ -55,7 +55,7 @@ namespace MaterialDesignThemes.Wpf
             }
 
             var window = Window.GetWindow(dialogHost);
-            dialogHost._restoreFocusDialogClose = window != null ? FocusManager.GetFocusedElement(window) : null;
+            dialogHost._restoreFocusDialogClose = FocusManager.GetFocusedElement(window);
 
             dialogHost.Dispatcher.BeginInvoke(DispatcherPriority.Background, new Action(() =>
             {

@@ -9,13 +9,9 @@ namespace MaterialDesignThemes.Wpf
 {
     [TemplatePart(Name = PopupPartName, Type = typeof(Popup))]
     [TemplatePart(Name = PopupPartName, Type = typeof(ContentControl))]
-    [TemplateVisualState(GroupName = "PopupStates", Name = OpenStateName)]
-    [TemplateVisualState(GroupName = "PopupStates", Name = ClosedStateName)]
     public class DialogHost : ContentControl
     {
         public const string PopupPartName = "PART_Popup";
-        public const string OpenStateName = "Open";
-        public const string ClosedStateName = "Closed";
 
         private IInputElement? _restoreFocusDialogClose;
 

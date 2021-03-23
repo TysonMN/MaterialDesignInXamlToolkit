@@ -7,12 +7,7 @@
                 <ControlTemplate TargetType="wpf:DialogHost">
                     <Grid x:Name="DialogHostRoot" Focusable="False">
                         <Popup x:Name="PART_Popup">
-                            <wpf:Card x:Name="PART_PopupContentElement" 
-                                        FocusManager.IsFocusScope="False"
-                                        Focusable="True"
-                                        IsTabStop="False"
-                                        Content="{TemplateBinding DialogContent}">
-                            </wpf:Card>
+                            <Button Content="{TemplateBinding DialogContent}"/>
                         </Popup>
                         <ContentPresenter x:Name="ContentPresenter"
                                           Opacity="1"

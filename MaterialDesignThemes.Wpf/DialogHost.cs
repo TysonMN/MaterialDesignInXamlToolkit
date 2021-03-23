@@ -14,11 +14,9 @@ namespace MaterialDesignThemes.Wpf
     public class DialogHost : ContentControl
     {
         public const string PopupPartName = "PART_Popup";
-        public const string PopupContentPartName = "PART_PopupContentElement";
         public const string OpenStateName = "Open";
         public const string ClosedStateName = "Closed";
 
-        private ContentControl? _popupContentControl;
         private IInputElement? _restoreFocusDialogClose;
 
         public static readonly DependencyProperty IsOpenProperty = DependencyProperty.Register(
@@ -27,9 +25,6 @@ namespace MaterialDesignThemes.Wpf
         private static void IsOpenPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
         {
             var dialogHost = (DialogHost)dependencyObject;
-
-            if (dialogHost._popupContentControl != null)
-                ValidationAssist.SetSuppress(dialogHost._popupContentControl, !dialogHost.IsOpen);
 
             if (!dialogHost.IsOpen)
             {
@@ -63,12 +58,6 @@ namespace MaterialDesignThemes.Wpf
         {
             get => GetValue(DialogContentProperty);
             set => SetValue(DialogContentProperty, value);
-        }
-
-        public override void OnApplyTemplate()
-        {
-            _popupContentControl = GetTemplateChild(PopupContentPartName) as ContentControl;
-            base.OnApplyTemplate();
         }
     }
 }
